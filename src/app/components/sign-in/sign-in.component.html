@@ -1,0 +1,47 @@
+<mat-toolbar>
+  <span>LOGIN</span>
+</mat-toolbar>
+<mat-card class="my-card">
+   <mat-card-content>
+      <form [formGroup]="signinForm" class="signin-form" (ngSubmit)="onSubmit(email.value, password.value)">  
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder="Email" formControlName="email" #email  [errorStateMatcher]="esMatcher">
+          <mat-error >{{getEmailErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+          <input matInput type="password" placeholder="Password" formControlName="password" #password [errorStateMatcher]="esMatcher">
+          <mat-error >more then 6 characters long</mat-error>
+        </mat-form-field>
+        <button mat-raised-button  [disabled]="signinForm.pristine || signinForm.invalid" mat-raised-button color="primary">
+              <mat-icon fontSet="far" fontIcon="fa-envelope" inline></mat-icon>
+              LOGIN with Email
+        </button>
+        <button mat-raised-button  routerLink="/forgot-password" color="link">
+              <mat-icon fontSet="fas" fontIcon="fa-key" inline></mat-icon>
+              Forgot password
+        </button>
+
+      </form>
+   </mat-card-content>
+   <mat-divider></mat-divider>
+   <br><br>
+   <button (click)="loginWithGoogle()"  mat-raised-button color="accent">
+        <mat-icon fontSet="fab" fontIcon="fa-google" inline></mat-icon>
+        Google
+  </button>
+  <button (click)="loginWithTwitter()"  mat-raised-button color="primary">
+           <mat-icon fontSet="fab" fontIcon="fa-twitter" inline></mat-icon>
+           Twitter
+  </button>
+
+  <button (click)="loginWithFacebook()"  mat-raised-button color="warn">
+        <mat-icon fontSet="fab" fontIcon="fa-facebook" inline></mat-icon>
+        Facebook
+  </button>
+
+  <button (click)="loginWithGithub()"  mat-raised-button color="link">
+        <mat-icon fontSet="fab" fontIcon="fa-github" inline></mat-icon>
+        GitHub
+  </button>
+
+ </mat-card>

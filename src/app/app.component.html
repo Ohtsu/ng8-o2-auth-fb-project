@@ -1,0 +1,14 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <!--  <span>HOME</span> -->
+     <span><a  mat-button   routerLink="/"><i class="fas fa-home"></i> Home</a></span>
+     <span class="spacer"></span>
+     <a  mat-button   [disabled]="isAuthenticated()" routerLink="/register-user"><i class="fas fa-user-plus"></i> Register</a>
+     <a  mat-button   [disabled]="isAuthenticated()" routerLink="/sign-in"><i class="fas fa-sign-in-alt"></i> Login</a>
+     <a  mat-button  [disabled]="!isAuthenticated()" (click) = "logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>
+
